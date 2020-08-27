@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Camino de Santiago </title>
+	<link rel="stylesheet" type="text/css" href="estilos.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+<!-- EN EL COMILLADO DE ACTION HAY QUE METER LA URL DEL DESTINO DE LOS DATOS
+JAVASCRIPT hace el post a través de http-->
+
+<body>
+	<h1>El camino de Santiago</h1>
+	<form id="formu1" name="myForm" action="https://localhost:8080/experiencia" method="POST">
+		<ul>
+			<!--for de la label tiene que coincidir con la id del input-->
+			<li>
+				<label for="name">Nombre:</label>
+				<input type="text" id="name" name="name">
+			</li>
+			<li>
+				<label for="text">Experiencia:</label>
+				<textarea id="experiencia" name="experiencia" required maxlength="200"
+					placeholder="Escribe aquí tu experiencia haciendo el camino de Santiago"></textarea>
+				<span id="ayudaExp"></span>
+			</li>
+		</ul>
+		<li class="button">
+			<button type="button" id="boton">Enviar</button>
+			<!--<button type="submit" onclick="getData()">Enviar experiencia</button>-->
+		</li>
+	</form>
+
+	<script>
+
+		$(document).ready(function () { 
+            
+            //This function called when the button is clicked 
+            $("#boton").click(function () { 
+                var data = { 
+					nombre : $('#name').val(), 
+					experiencia : $('#experiencia').val() 
+				};
+
+				$.ajax({
+					type: "POST",
+					url: "http://localhost:8080/experiencia",
+					data: JSON.stringify(data),
+					success: function () {},
+					dataType: "json",
+					contentType: "application/json; charset=utf-8"
+				});
+            }); 
+        }); 
+	</script>
+
+</body>
+
+</html>
