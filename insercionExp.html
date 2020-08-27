@@ -14,7 +14,7 @@ JAVASCRIPT hace el post a través de http-->
 
 <body>
 	<h1>El camino de Santiago</h1>
-	<form id="formu1" name="myForm" action="https://localhost:8080/experiencia" method="POST">
+	<form id="formu1" name="myForm" action="https://caminosantiago.herokuapp.com/experiencia" method="POST">
 		<ul>
 			<!--for de la label tiene que coincidir con la id del input-->
 			<li>
@@ -47,7 +47,7 @@ JAVASCRIPT hace el post a través de http-->
 
 				$.ajax({
 					type: "POST",
-					url: "http://localhost:8080/experiencia",
+					url: "https://caminosantiago.herokuapp.com/experiencia",
 					data: JSON.stringify(data),
 					success: function () {},
 					dataType: "json",
