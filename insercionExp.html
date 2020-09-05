@@ -41,34 +41,28 @@ JAVASCRIPT hace el post a través de http-->
             //This function called when the button is clicked 
             $("#boton").click(function () { 
 				if($('#experiencia').val()!= ""){
-                var data = { 
-					nombre : $('#name').val(), 
-					experiencia : $('#experiencia').val() 
-				};
+					var data = { 
+						nombre : $('#name').val(), 
+						experiencia : $('#experiencia').val() 
+					};
 
-				$.ajax({
-					type: "POST",
-					url: "https://caminosantiago.herokuapp.com/experiencia",
-					data: JSON.stringify(data),
-					success: function () {},
-					dataType: "json",
-					contentType: "application/json; charset=utf-8"
-				});
-				
-				alert("Experiencia registrada,\n¡Gracias por participar!");
-				$('#name').val('');
-				$('#experiencia').val('');
+					$.ajax({
+						type: "POST",
+						url: "https://caminosantiago.herokuapp.com/experiencia",
+						data: JSON.stringify(data),
+						success: function () {},
+						dataType: "json",
+						contentType: "application/json; charset=utf-8"
+					});
+					
+					alert("Experiencia registrada,\n¡Gracias por participar!");
+					$('#name').val('');
+					$('#experiencia').val('');
 				
 				}else{
 					alert("Uy, te has olvidado tu experiencia ;)");
 					
-					
 				}
-				
-					
-					//document.getElementById('experiencia').value=null;
-					
-				
             }); 
 			
         }); 	
