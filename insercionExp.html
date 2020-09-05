@@ -23,13 +23,13 @@ JAVASCRIPT hace el post a través de http-->
 			</li>
 			<li>
 				<label for="text">Experiencia:</label>
-				<textarea id="experiencia" name="experiencia" required maxlength="200"
-					placeholder="Escribe aquí tu experiencia haciendo el camino de Santiago"></textarea>
+				<textarea id="experiencia" name="experiencia" maxlength="400"
+					placeholder="Escribe aquí tu experiencia haciendo el camino de Santiago" required></textarea>
 				<span id="ayudaExp"></span>
 			</li>
 		</ul>
 		<li class="button">
-			<button type="button" id="boton">Enviar</button>
+			<button type="button" id="boton" >Enviar</button>
 			<!--<button type="submit" onclick="getData()">Enviar experiencia</button>-->
 		</li>
 	</form>
@@ -40,6 +40,7 @@ JAVASCRIPT hace el post a través de http-->
             
             //This function called when the button is clicked 
             $("#boton").click(function () { 
+				if($('#experiencia').val()!= ""){
                 var data = { 
 					nombre : $('#name').val(), 
 					experiencia : $('#experiencia').val() 
@@ -53,8 +54,24 @@ JAVASCRIPT hace el post a través de http-->
 					dataType: "json",
 					contentType: "application/json; charset=utf-8"
 				});
+				
+				alert("Experiencia registrada,\n¡Gracias por participar!");
+				$('#name').val('');
+				$('#experiencia').val('');
+				
+				}else{
+					alert("Uy, te has olvidado tu experiencia ;)");
+					
+					
+				}
+				
+					
+					//document.getElementById('experiencia').value=null;
+					
+				
             }); 
-        }); 
+			
+        }); 	
 	</script>
 
 </body>
